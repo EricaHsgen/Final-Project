@@ -19,8 +19,10 @@ struct HomeView: View {
                     .font(.title)
                     .multilineTextAlignment(.center)
                     .padding()
+                    .background(Color.yellow)
+                    .cornerRadius(10)
 
-                Button("Favorite"){
+                Button("⭐ Save"){
                     advice.append(viewModel.advice)
                 }
                 .padding()
