@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var advice: [String] = []
+    @State var favorites: [String] = [] //binding array of strings to send between home and favorite views
     var body: some View {
         TabView {
-            HomeView(advice: $advice)
+            HomeView(favorites: $favorites)
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")
                 }
             
-            FavoritesView(advice: $advice)
+            FavoritesView(favorites: $favorites)
                 .tabItem {
                     Image(systemName: "star")
                     Text("Favorites")

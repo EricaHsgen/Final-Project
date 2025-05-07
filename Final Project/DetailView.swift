@@ -10,14 +10,19 @@ import SwiftUI
 struct DetailView: View {
     @Environment(\.dismiss) var dismiss
     @Binding var adviceText: String
+    @Binding var adviceLength: Int
     
     var body: some View {
+        //Show details
         Text(adviceText)
             .multilineTextAlignment(.center)
             .frame(maxWidth: 350)
-            .font(.system(size: 20, weight: .thin, design: .default))
+            .font(.headline)
+        Text("Length of string: \(adviceLength.description)")
+            .multilineTextAlignment(.center)
+            .font(.subheadline)
         
-        Button(action: {
+        Button(action: { // back button
             dismiss()
         }){
             Text("Back")

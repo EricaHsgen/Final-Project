@@ -8,22 +8,16 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @Binding var advice: [String]
+    @Binding var favorites: [String]
     var body: some View {
-        NavigationStack{
+        NavigationStack{ //Scrollable list of favorited items from advice array
             List{
-                ForEach(advice, id: \.self){advice in
+                ForEach(favorites, id: \.self){advice in
                     Text(advice)
                 }
             }
             .navigationBarTitle("Favorites ⭐")
         }
-        .onAppear {
-            test()
-        }
-    }
-    func test() {
-        print($advice)
     }
 }
 

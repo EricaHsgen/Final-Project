@@ -35,7 +35,3 @@ struct AdviceCard: View {
     }
     
 }
-
-//#Preview {
-////    AdviceCard(adviceID: "1", advice: $advice)
-//}

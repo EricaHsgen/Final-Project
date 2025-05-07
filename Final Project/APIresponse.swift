@@ -15,6 +15,7 @@ struct AdviceResponse: Codable{
 
 struct Advice: Codable{
     let advice: String
+    let id: Int
 }
 
 class AdviceViewModel: ObservableObject{
