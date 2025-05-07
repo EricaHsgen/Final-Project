@@ -10,6 +10,8 @@ import SwiftUI
 struct HomeView: View {
     @StateObject private var viewModel = AdviceViewModel()
     @Binding var advice: [String]
+    @State private var adviceToggle = false
+    @State private var selectedAdvice = ""
     @State private var adviceID = ""
     
     var body: some View {
@@ -21,6 +23,11 @@ struct HomeView: View {
                     .padding()
                     .background(Color.yellow)
                     .cornerRadius(10)
+                    .foregroundStyle(.black)
+                    .onTapGesture {
+                        selectedAdvice = viewModel.advice
+                        adviceToggle.toggle()
+                    }
 
                 Button("⭐ Save"){
                     advice.append(viewModel.advice)
@@ -36,9 +43,14 @@ struct HomeView: View {
                 }
             .padding()
         }
+        
         .padding()
         .onAppear {
             viewModel.fetchAdvice(adviceID: "1")
         }
+        .fullScreenCover(isPresented: $adviceToggle){
+            DetailView(adviceText: $selectedAdvice)
+        }
     }
+    
 }
